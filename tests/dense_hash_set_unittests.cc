@@ -18,7 +18,7 @@ TEST(DenseHashSet, TestEmplaceHint) {
 	auto it = set.begin();
 	set.emplace_hint(it, str2);
 
-	ASSERT_EQ(set.size(), 2ul);
+	EXPECT_EQ(set.size(), 2ul);
 }
 
 TEST(DenseHashSet, TestEmplaceHintAfterDelete) {

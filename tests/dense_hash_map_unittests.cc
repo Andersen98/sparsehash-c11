@@ -17,5 +17,5 @@ TEST(DenseHashMap, TestEmplaceHint) {
 	auto it = map.begin();
 	map.emplace_hint(it, 1701, "World");
 
-	ASSERT_EQ(map.size(), 2);
+	EXPECT_EQ(map.size(), 2);
 }

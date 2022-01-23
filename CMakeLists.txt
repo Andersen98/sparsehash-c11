@@ -1,12 +1,16 @@
 cmake_minimum_required(VERSION 3.20)
-
-
-
-set(CMAKE_BUILD_TYPE Release)
-project (google_sparsehash
+project (Google_Sparsehash
   VERSION 2.11.1
   LANGUAGES CXX
   )  
+
+
+# GoogleTest requires at least C++11
+set(CMAKE_CXX_STANDARD 11)
+
+set(CMAKE_BUILD_TYPE Release)
+
+include(GNUInstallDirs)
 
 
 
@@ -31,20 +35,16 @@ target_include_directories(google_sparsehash INTERFACE
   )
 
 
-  
+
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/tests")  
+
 
 add_executable(bench bench.cc)
-target_link_libraries(bench google_sparsehash)
-
-add_subdirectory(tests)
-include(GNUInstallDirs)
+target_link_libraries(bench PRIVATE google_sparsehash)
 
 install( DIRECTORY src/ TYPE INCLUDE )
 
-#credit to CLIUtils/modern-cmake for this code 
-# Testing only available if this is the main app
-# Emergency override SPARSEHASH_CMAKE_BUILD_TESTING provided as well
-if((CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR SPARSHASH_CMAKE_BUILD_TESTING)
-    AND BUILD_TESTING)
-  add_subdirectory(tests)
-endif()
+
+
+

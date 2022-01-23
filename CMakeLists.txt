@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.17.2)
 project (Google_Sparsehash
   VERSION 2.11.1
   LANGUAGES CXX

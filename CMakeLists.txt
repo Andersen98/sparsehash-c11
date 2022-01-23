@@ -46,5 +46,3 @@ target_link_libraries(bench PRIVATE google_sparsehash)
 install( DIRECTORY src/ TYPE INCLUDE )
 
 
-
-

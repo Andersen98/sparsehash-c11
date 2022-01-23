@@ -33,5 +33,12 @@ target_link_libraries(sparshash_tests PRIVATE  google_sparsehash PRIVATE  gtest_
 
 include(GoogleTest)
 gtest_discover_tests( sparshash_tests 
+  TEST_LIST my_tests
   DISCOVERY_MODE PRE_TEST
   )
+
+include(FindGTest)
+
+enable_testing()
+find_package(GTest REQUIRED)
+

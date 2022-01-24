@@ -1,6 +1,6 @@
-project(SparseHash_Tests)
+project(GoogleSparseHashTests)
 include(GNUInstallDirs)
-add_executable( sparshash_tests 
+add_executable( sparshash_tests
   sparsetable_unittests.cc
   simple_unittests.cc
   hashtable_unittests.cc
@@ -10,7 +10,6 @@ add_executable( sparshash_tests
   dense_hash_set_unittests.cc
   dense_hash_map_unittests.cc
   )
-
 
 
 include(FetchContent)
@@ -28,17 +27,9 @@ enable_testing()
 
 
 
-
-target_link_libraries(sparshash_tests PRIVATE  google_sparsehash PRIVATE  gtest_main PRIVATE gmock_main  )
+target_link_libraries(sparshash_tests PRIVATE GoogleSparseHash  PRIVATE  gtest_main PRIVATE gmock_main  )
 
 include(GoogleTest)
-gtest_discover_tests( sparshash_tests 
-  TEST_LIST my_tests
+gtest_discover_tests( sparshash_tests
   DISCOVERY_MODE PRE_TEST
   )
-
-include(FindGTest)
-
-enable_testing()
-find_package(GTest REQUIRED)
-

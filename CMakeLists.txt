@@ -40,6 +40,10 @@ install(FILES
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/sparsehash/internal
   )
 
+if(BUILD_TESTING)
+add_subdirectory(tests)
+target_include_directories(sparshash_tests PRIVATE  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>)
+endif()
 
 add_executable(bench bench.cc)
 target_link_libraries(bench PRIVATE GoogleSparseHash)
